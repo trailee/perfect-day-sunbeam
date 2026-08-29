@@ -1,28 +1,54 @@
-[gd_scene format=3 uid="uid://bk4y2vqcxuvl7"]
+[gd_scene format=3 uid="uid://c1nfc4y06ialx"]
 
 [ext_resource type="Texture2D" uid="uid://byku3ndkrvabu" path="res://images/920-9208361_rounded-rectangle-rectangle-removebg-preview.png" id="1_8enid"]
-[ext_resource type="Script" uid="uid://glxdhr2cxh1a" path="res://interface/activities_interface.gd" id="1_ul67p"]
 [ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="2_r65ty"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnecp"]
+[sub_resource type="GDScript" id="GDScript_hv1h0"]
+script/source = "extends Node2D
+
+func _on_tv_pressed() -> void:
+	hide()
+
+
+func _on_bev_pressed() -> void:
+	hide()
+
+
+func _on_muk_pressed() -> void:
+	hide()
+
+
+func _on_sleep_pressed() -> void:
+	hide()
+
+
+func _on_scroll_pressed() -> void:
+	hide()
+
+
+func _on_button_pressed() -> void:
+	hide()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul67p"]
 bg_color = Color(0.4911909, 0.49119097, 0.4911908, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slvtc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnecp"]
 bg_color = Color(0.37716255, 0.3771626, 0.37716243, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ej38r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slvtc"]
 bg_color = Color(0.6781177, 0.67811775, 0.67811745, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jaic3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ej38r"]
 
 [sub_resource type="Theme" id="Theme_1yjrf"]
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vnecp")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_slvtc")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ej38r")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_jaic3")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ul67p")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_vnecp")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_slvtc")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ej38r")
 
 [node name="activities_interface" type="Node2D" unique_id=770533169]
-script = ExtResource("1_ul67p")
+script = SubResource("GDScript_hv1h0")
 
 [node name="screen" type="Sprite2D" parent="." unique_id=612487933]
 scale = Vector2(1, 0.7936963)

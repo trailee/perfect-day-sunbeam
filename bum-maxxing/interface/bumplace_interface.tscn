@@ -4,6 +4,31 @@
 [ext_resource type="Script" uid="uid://dhj3e8p74k7oc" path="res://interface/bumplace_interface.gd" id="1_meaed"]
 [ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="2_meaed"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meaed"]
+bg_color = Color(0.4911909, 0.49119097, 0.4911908, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6pn7"]
+bg_color = Color(0.37716255, 0.3771626, 0.37716243, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyit2"]
+bg_color = Color(0.6781177, 0.67811775, 0.67811745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsodb"]
+
+[sub_resource type="Theme" id="Theme_n3f7a"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_meaed")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_r6pn7")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_kyit2")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_bsodb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3f7a"]
+bg_color = Color(0.8124056, 0.8124056, 0.8124054, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 15
+
 [node name="bumplace_interface" type="Node2D" unique_id=2054423378]
 script = ExtResource("1_meaed")
 
@@ -11,7 +36,8 @@ script = ExtResource("1_meaed")
 scale = Vector2(1, 0.7936963)
 texture = ExtResource("1_4x0t2")
 
-[node name="UI" type="Control" parent="." unique_id=1722019262]
+[node name="bumplace UI" type="Control" parent="." unique_id=1722019262]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -182.0
@@ -19,15 +45,7 @@ offset_top = -235.0
 offset_right = -142.0
 offset_bottom = -195.0
 
-[node name="Button" type="Button" parent="UI" unique_id=1710137084]
-layout_mode = 0
-offset_top = -40.0
-offset_right = 18.0
-offset_bottom = -9.0
-scale = Vector2(2.375, 2.375)
-text = "X"
-
-[node name="Label" type="Label" parent="UI" unique_id=364415741]
+[node name="Label" type="Label" parent="bumplace UI" unique_id=364415741]
 layout_mode = 1
 offset_left = 48.0
 offset_top = -5.0
@@ -38,7 +56,7 @@ text = "Bumplace
 Marketplace"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=238563534]
+[node name="VBoxContainer" type="VBoxContainer" parent="bumplace UI" unique_id=238563534]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 167.0
@@ -47,12 +65,12 @@ offset_bottom = 743.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="activ" type="Button" parent="UI/VBoxContainer" unique_id=656287756]
+[node name="activ" type="Button" parent="bumplace UI/VBoxContainer" unique_id=656287756]
 layout_mode = 2
 theme_override_constants/icon_max_width = 310
 icon = ExtResource("2_meaed")
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/activ" unique_id=1780958647]
+[node name="Label" type="Label" parent="bumplace UI/VBoxContainer/activ" unique_id=1780958647]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 30.0
@@ -62,12 +80,12 @@ theme_override_font_sizes/font_size = 40
 text = "bumtivities"
 horizontal_alignment = 1
 
-[node name="access" type="Button" parent="UI/VBoxContainer" unique_id=869010322]
+[node name="access" type="Button" parent="bumplace UI/VBoxContainer" unique_id=869010322]
 layout_mode = 2
 theme_override_constants/icon_max_width = 310
 icon = ExtResource("2_meaed")
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/access" unique_id=1114508855]
+[node name="Label" type="Label" parent="bumplace UI/VBoxContainer/access" unique_id=1114508855]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 30.0
@@ -77,6 +95,911 @@ theme_override_font_sizes/font_size = 40
 text = "bumcessories"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="UI/VBoxContainer/activ" to="." method="_on_activ_pressed"]
-[connection signal="pressed" from="UI/VBoxContainer/access" to="." method="_on_access_pressed"]
+[node name="activities UI" type="Control" parent="." unique_id=2105240137]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="activities UI" unique_id=764801599]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 56.0
+offset_right = 273.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "Activities"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="activities UI" unique_id=1363482626]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="activities UI/ScrollContainer" unique_id=613937571]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="tv" type="Button" parent="activities UI/ScrollContainer/VBoxContainer" unique_id=1038519082]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="activities UI/ScrollContainer/VBoxContainer/tv" unique_id=1987611828]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "TV time"
+horizontal_alignment = 1
+
+[node name="bev" type="Button" parent="activities UI/ScrollContainer/VBoxContainer" unique_id=821031335]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="activities UI/ScrollContainer/VBoxContainer/bev" unique_id=2029579378]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "bevvy"
+horizontal_alignment = 1
+
+[node name="muk" type="Button" parent="activities UI/ScrollContainer/VBoxContainer" unique_id=1139951844]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="activities UI/ScrollContainer/VBoxContainer/muk" unique_id=138666414]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "mukky"
+horizontal_alignment = 1
+
+[node name="sleep" type="Button" parent="activities UI/ScrollContainer/VBoxContainer" unique_id=977319381]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="activities UI/ScrollContainer/VBoxContainer/sleep" unique_id=1260695136]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "sleepy"
+horizontal_alignment = 1
+
+[node name="scroll" type="Button" parent="activities UI/ScrollContainer/VBoxContainer" unique_id=1918984512]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="activities UI/ScrollContainer/VBoxContainer/scroll" unique_id=64743700]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 30.0
+offset_right = 304.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "doomscroll"
+horizontal_alignment = 1
+
+[node name="tv buy UI" type="Control" parent="." unique_id=209024677]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="tv buy UI" unique_id=25611587]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 56.0
+offset_right = 273.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "TV time"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tv buy UI" unique_id=1466505691]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 339.0
+offset_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="old box movies" type="TextureRect" parent="tv buy UI/VBoxContainer" unique_id=1187447022]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="tv buy UI/VBoxContainer/old box movies" unique_id=698911936]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "old box movies"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="tv buy UI/VBoxContainer/old box movies" unique_id=765322254]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="flat screen show" type="TextureRect" parent="tv buy UI/VBoxContainer" unique_id=1053561218]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="tv buy UI/VBoxContainer/flat screen show" unique_id=1973634759]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "flat screen show"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="tv buy UI/VBoxContainer/flat screen show" unique_id=1577965018]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="wide screen anime" type="TextureRect" parent="tv buy UI/VBoxContainer" unique_id=836154339]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="tv buy UI/VBoxContainer/wide screen anime" unique_id=149741242]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "wide screen anime"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="tv buy UI/VBoxContainer/wide screen anime" unique_id=1135271699]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="drinking buy UI" type="Control" parent="." unique_id=1103037586]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="drinking buy UI" unique_id=2146606511]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 56.0
+offset_right = 273.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "bevvy"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="drinking buy UI" unique_id=111605075]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="drinking buy UI/ScrollContainer" unique_id=1531225869]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="water" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=1794221210]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/water" unique_id=563213120]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "water bottle"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/water" unique_id=1368832506]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="milk" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=370731046]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/milk" unique_id=336141377]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "cup of milk"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/milk" unique_id=194062409]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="coffee" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=1229461380]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/coffee" unique_id=980413057]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "cup of coffee"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/coffee" unique_id=1197933799]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="fah" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=1907950068]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/fah" unique_id=1330545061]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "fahrenheit"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/fah" unique_id=551107338]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="greencw" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=2145138971]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/greencw" unique_id=1158069863]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "green cow"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/greencw" unique_id=642882697]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="battery" type="TextureRect" parent="drinking buy UI/ScrollContainer/VBoxContainer" unique_id=380692815]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="drinking buy UI/ScrollContainer/VBoxContainer/battery" unique_id=184497474]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "battery"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="drinking buy UI/ScrollContainer/VBoxContainer/battery" unique_id=931369951]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="eating buy UI" type="Control" parent="." unique_id=467581289]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="eating buy UI" unique_id=906327147]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 56.0
+offset_right = 276.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "mukky"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="eating buy UI" unique_id=458488324]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="eating buy UI/ScrollContainer" unique_id=1565836155]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="candy" type="TextureRect" parent="eating buy UI/ScrollContainer/VBoxContainer" unique_id=1796518783]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="eating buy UI/ScrollContainer/VBoxContainer/candy" unique_id=67073208]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "candy"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="eating buy UI/ScrollContainer/VBoxContainer/candy" unique_id=1594992982]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="chips_fries" type="TextureRect" parent="eating buy UI/ScrollContainer/VBoxContainer" unique_id=1077723508]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="eating buy UI/ScrollContainer/VBoxContainer/chips_fries" unique_id=501159235]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "chips/fries"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="eating buy UI/ScrollContainer/VBoxContainer/chips_fries" unique_id=101978106]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="noods" type="TextureRect" parent="eating buy UI/ScrollContainer/VBoxContainer" unique_id=6231575]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="eating buy UI/ScrollContainer/VBoxContainer/noods" unique_id=185384339]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "ramen noodles"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="eating buy UI/ScrollContainer/VBoxContainer/noods" unique_id=1989162258]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="ribsnmc" type="TextureRect" parent="eating buy UI/ScrollContainer/VBoxContainer" unique_id=778239818]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="eating buy UI/ScrollContainer/VBoxContainer/ribsnmc" unique_id=1465191771]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "ribs + mac n cheese"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="eating buy UI/ScrollContainer/VBoxContainer/ribsnmc" unique_id=1864621468]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="sfboil" type="TextureRect" parent="eating buy UI/ScrollContainer/VBoxContainer" unique_id=343598205]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="eating buy UI/ScrollContainer/VBoxContainer/sfboil" unique_id=1468252535]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "seafood boil"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="eating buy UI/ScrollContainer/VBoxContainer/sfboil" unique_id=475468561]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="nap buy UI" type="Control" parent="." unique_id=2026260934]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="nap buy UI" unique_id=2023685946]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 56.0
+offset_right = 276.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "sleepy"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="nap buy UI" unique_id=395066185]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="nap buy UI/ScrollContainer" unique_id=1440078184]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="5m" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=803342784]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/5m" unique_id=1892440663]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "5 min nap"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/5m" unique_id=2124501999]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="15m" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=231618786]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/15m" unique_id=1136329122]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "15 min nap"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/15m" unique_id=1487913586]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="30m" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=6871295]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/30m" unique_id=874042617]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "30 min nap"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/30m" unique_id=259854082]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="1h" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=1469362943]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/1h" unique_id=2031376224]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "1 hour nap"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/1h" unique_id=1012345546]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="2h" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=1449593313]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/2h" unique_id=752533637]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "2 hour nap?"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/2h" unique_id=1655839448]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="5h" type="TextureRect" parent="nap buy UI/ScrollContainer/VBoxContainer" unique_id=343957481]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="nap buy UI/ScrollContainer/VBoxContainer/5h" unique_id=1525436795]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 41.0
+offset_right = 188.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "5 hour SLEEP"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="nap buy UI/ScrollContainer/VBoxContainer/5h" unique_id=739961551]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="scroll buy UI" type="Control" parent="." unique_id=1601426876]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="scroll buy UI" unique_id=945627957]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 56.0
+offset_right = 276.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "sleepy"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="scroll buy UI" unique_id=1764215237]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="scroll buy UI/ScrollContainer" unique_id=801891494]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="yt" type="TextureRect" parent="scroll buy UI/ScrollContainer/VBoxContainer" unique_id=12202144]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="scroll buy UI/ScrollContainer/VBoxContainer/yt" unique_id=1834270422]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "Youtube"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="scroll buy UI/ScrollContainer/VBoxContainer/yt" unique_id=1438225088]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="ig" type="TextureRect" parent="scroll buy UI/ScrollContainer/VBoxContainer" unique_id=695544111]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="scroll buy UI/ScrollContainer/VBoxContainer/ig" unique_id=1231310876]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "Instagram"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="scroll buy UI/ScrollContainer/VBoxContainer/ig" unique_id=436975127]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="tt" type="TextureRect" parent="scroll buy UI/ScrollContainer/VBoxContainer" unique_id=362527896]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="scroll buy UI/ScrollContainer/VBoxContainer/tt" unique_id=516732200]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "TikTok"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="scroll buy UI/ScrollContainer/VBoxContainer/tt" unique_id=640519113]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="r" type="TextureRect" parent="scroll buy UI/ScrollContainer/VBoxContainer" unique_id=1597530382]
+layout_mode = 2
+texture = ExtResource("2_meaed")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="scroll buy UI/ScrollContainer/VBoxContainer/r" unique_id=503621809]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 41.0
+offset_right = 185.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+text = "Reddit"
+horizontal_alignment = 1
+
+[node name="tv" type="Button" parent="scroll buy UI/ScrollContainer/VBoxContainer/r" unique_id=2068919232]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 299.0
+offset_bottom = 82.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
+text = "purchase"
+
+[node name="exit" type="Button" parent="." unique_id=1710137084]
+offset_left = -182.0
+offset_top = -275.0
+offset_right = -164.0
+offset_bottom = -244.0
+scale = Vector2(2.375, 2.375)
+text = "X"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1258593519]
+
+[connection signal="pressed" from="bumplace UI/VBoxContainer/activ" to="." method="_on_activ_pressed"]
+[connection signal="pressed" from="bumplace UI/VBoxContainer/access" to="." method="_on_access_pressed"]
+[connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/tv" to="." method="_on_tv_pressed"]
+[connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/bev" to="." method="_on_bev_pressed"]
+[connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/muk" to="." method="_on_muk_pressed"]
+[connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/sleep" to="." method="_on_sleep_pressed"]
+[connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/scroll" to="." method="_on_scroll_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_button_pressed"]
