@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://bk4y2vqcxuvl7"]
+
+[ext_resource type="Texture2D" uid="uid://byku3ndkrvabu" path="res://images/920-9208361_rounded-rectangle-rectangle-removebg-preview.png" id="1_8enid"]
+[ext_resource type="Script" uid="uid://glxdhr2cxh1a" path="res://interface/activities_interface.gd" id="1_ul67p"]
+[ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="2_r65ty"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnecp"]
+bg_color = Color(0.4911909, 0.49119097, 0.4911908, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slvtc"]
+bg_color = Color(0.37716255, 0.3771626, 0.37716243, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ej38r"]
+bg_color = Color(0.6781177, 0.67811775, 0.67811745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jaic3"]
+
+[sub_resource type="Theme" id="Theme_1yjrf"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vnecp")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_slvtc")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ej38r")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_jaic3")
+
+[node name="activities_interface" type="Node2D" unique_id=770533169]
+script = ExtResource("1_ul67p")
+
+[node name="screen" type="Sprite2D" parent="." unique_id=612487933]
+scale = Vector2(1, 0.7936963)
+texture = ExtResource("1_8enid")
+
+[node name="UI" type="Control" parent="." unique_id=37456704]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="UI" unique_id=536982527]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 56.0
+offset_right = 273.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "Activities"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="UI" unique_id=821258074]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(2.375, 2.375)
+text = "X"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI" unique_id=495324489]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 480.0
+theme = SubResource("Theme_1yjrf")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer" unique_id=146048887]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="tv" type="Button" parent="UI/ScrollContainer/VBoxContainer" unique_id=1850975456]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_r65ty")
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/tv" unique_id=771490083]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "TV time"
+horizontal_alignment = 1
+
+[node name="bev" type="Button" parent="UI/ScrollContainer/VBoxContainer" unique_id=2017685671]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_r65ty")
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/bev" unique_id=539477999]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "bevvy"
+horizontal_alignment = 1
+
+[node name="muk" type="Button" parent="UI/ScrollContainer/VBoxContainer" unique_id=860756018]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_r65ty")
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/muk" unique_id=1141706804]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "mukky"
+horizontal_alignment = 1
+
+[node name="sleep" type="Button" parent="UI/ScrollContainer/VBoxContainer" unique_id=547438446]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_r65ty")
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/sleep" unique_id=1946709849]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "sleepy"
+horizontal_alignment = 1
+
+[node name="scroll" type="Button" parent="UI/ScrollContainer/VBoxContainer" unique_id=1463020320]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_r65ty")
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/scroll" unique_id=1056386742]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 30.0
+offset_right = 304.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "doomscroll"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/tv" to="." method="_on_tv_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/bev" to="." method="_on_bev_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/muk" to="." method="_on_muk_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/sleep" to="." method="_on_sleep_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/scroll" to="." method="_on_scroll_pressed"]

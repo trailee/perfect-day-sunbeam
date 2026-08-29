@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dy0cj6egq0qvt"]
+
+[ext_resource type="AudioStream" uid="uid://baeismcsk880o" path="res://audio/bgm_calm.mp3" id="1_bpugw"]
+[ext_resource type="Script" uid="uid://c64t1so08lntt" path="res://background.gd" id="1_gjjrj"]
+[ext_resource type="PackedScene" uid="uid://bk4y2vqcxuvl7" path="res://interface/activities_interface.tscn" id="1_i7s6n"]
+[ext_resource type="Texture2D" uid="uid://brgbths5iucmo" path="res://images/bg.png" id="1_oabld"]
+[ext_resource type="Texture2D" uid="uid://bc166vneblkjj" path="res://images/chips.png" id="2_splo0"]
+[ext_resource type="Texture2D" uid="uid://k2ipnw40e07s" path="res://images/tv.png" id="3_eq6nc"]
+[ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="5_gjjrj"]
+[ext_resource type="PackedScene" uid="uid://bataxyg60i6xp" path="res://interface/bumplace_interface.tscn" id="7_vvxqx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_splo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq6nc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvxqx"]
+
+[node name="Main" type="Node2D" unique_id=612749641]
+script = ExtResource("1_gjjrj")
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="." unique_id=1438311723]
+stream = ExtResource("1_bpugw")
+autoplay = true
+bus = &"bgm"
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1436374199]
+texture = ExtResource("1_oabld")
+centered = false
+
+[node name="interactable" type="Node2D" parent="." unique_id=966903561]
+
+[node name="chips" type="Sprite2D" parent="interactable" unique_id=1924478598]
+position = Vector2(960, 537)
+texture = ExtResource("2_splo0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="interactable/chips" unique_id=342313549]
+position = Vector2(891, 194)
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable/chips/StaticBody2D" unique_id=1558071758]
+position = Vector2(-2.9999998, 12)
+scale = Vector2(14.605778, 6.6227164)
+shape = SubResource("CapsuleShape2D_splo0")
+
+[node name="tv" type="Sprite2D" parent="interactable" unique_id=1099229174]
+position = Vector2(960, 537)
+texture = ExtResource("3_eq6nc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="interactable/tv" unique_id=334594670]
+position = Vector2(-25, -163)
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable/tv/StaticBody2D" unique_id=806488804]
+position = Vector2(0, 2)
+scale = Vector2(38.16507, 31.47528)
+shape = SubResource("RectangleShape2D_eq6nc")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=711133326]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=1012324673]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="activities_interface" parent="ui/HBoxContainer" unique_id=770533169 instance=ExtResource("1_i7s6n")]
+position = Vector2(0, -3)
+scale = Vector2(1.7, 1.7)
+
+[node name="bumplace_interface" parent="ui/HBoxContainer" unique_id=2054423378 instance=ExtResource("7_vvxqx")]
+scale = Vector2(1.7, 1.7)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui" unique_id=953111258]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="marketplace" type="Sprite2D" parent="ui/HBoxContainer2" unique_id=772155642]
+position = Vector2(-89, 107)
+scale = Vector2(0.1758509, 0.5048077)
+texture = ExtResource("5_gjjrj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ui/HBoxContainer2/marketplace" unique_id=1811876546]
+position = Vector2(-22.746582, -1.980957)
+scale = Vector2(5.6866364, 1.9809526)
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ui/HBoxContainer2/marketplace/StaticBody2D" unique_id=705905261]
+scale = Vector2(8.891951, 7.640655)
+shape = SubResource("CircleShape2D_vvxqx")
+
+[connection signal="input_event" from="ui/HBoxContainer2/marketplace/StaticBody2D" to="." method="_on_static_body_2d_input_event"]

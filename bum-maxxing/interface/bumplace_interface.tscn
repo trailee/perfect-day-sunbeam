@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bataxyg60i6xp"]
+
+[ext_resource type="Texture2D" uid="uid://byku3ndkrvabu" path="res://images/920-9208361_rounded-rectangle-rectangle-removebg-preview.png" id="1_4x0t2"]
+[ext_resource type="Script" uid="uid://dhj3e8p74k7oc" path="res://interface/bumplace_interface.gd" id="1_meaed"]
+[ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="2_meaed"]
+
+[node name="bumplace_interface" type="Node2D" unique_id=2054423378]
+script = ExtResource("1_meaed")
+
+[node name="screen" type="Sprite2D" parent="." unique_id=2121188884]
+scale = Vector2(1, 0.7936963)
+texture = ExtResource("1_4x0t2")
+
+[node name="UI" type="Control" parent="." unique_id=1722019262]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -182.0
+offset_top = -235.0
+offset_right = -142.0
+offset_bottom = -195.0
+
+[node name="Button" type="Button" parent="UI" unique_id=1710137084]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 18.0
+offset_bottom = -9.0
+scale = Vector2(2.375, 2.375)
+text = "X"
+
+[node name="Label" type="Label" parent="UI" unique_id=364415741]
+layout_mode = 1
+offset_left = 48.0
+offset_top = -5.0
+offset_right = 319.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 45
+text = "Bumplace 
+Marketplace"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=238563534]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 167.0
+offset_right = 341.0
+offset_bottom = 743.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="activ" type="Button" parent="UI/VBoxContainer" unique_id=656287756]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/activ" unique_id=1780958647]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 296.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "bumtivities"
+horizontal_alignment = 1
+
+[node name="access" type="Button" parent="UI/VBoxContainer" unique_id=869010322]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/access" unique_id=1114508855]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 292.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "bumcessories"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/activ" to="." method="_on_activ_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/access" to="." method="_on_access_pressed"]
