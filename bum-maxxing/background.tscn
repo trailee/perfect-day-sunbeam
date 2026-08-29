@@ -21,7 +21,6 @@ script = ExtResource("1_gjjrj")
 [node name="bgm" type="AudioStreamPlayer2D" parent="." unique_id=1438311723]
 stream = ExtResource("1_bpugw")
 autoplay = true
-bus = &"bgm"
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1436374199]
 texture = ExtResource("1_oabld")
@@ -56,6 +55,7 @@ scale = Vector2(38.16507, 31.47528)
 shape = SubResource("RectangleShape2D_eq6nc")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=711133326]
+visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=1012324673]
 anchors_preset = 8
@@ -95,4 +95,5 @@ input_pickable = true
 scale = Vector2(8.891951, 7.640655)
 shape = SubResource("CircleShape2D_vvxqx")
 
+[connection signal="input_event" from="interactable/chips/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="input_event" from="ui/HBoxContainer2/marketplace/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
