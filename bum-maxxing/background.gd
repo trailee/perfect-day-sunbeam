@@ -1,6 +1,14 @@
 extends Node2D
 
 @onready var bumplace: Node2D = $ui/HBoxContainer/bumplace_interface
+@onready var cans: Sprite2D = $interactable/cans
+@onready var tv: Sprite2D = $interactable/tv
+@onready var marketplace: Sprite2D = $interactable/marketplace
+@onready var chipanimation: Node2D = $interactable/chipanimation
+
+# ANIMATIONS
+@onready var mask: Sprite2D = $interactable/mask
+@onready var mask_anim: AnimatedSprite2D = $interactable/mask_anim
 
 @export var textures: Array[Texture2D] = []
 @onready var sprite: Sprite2D = $Sprite2D
@@ -23,8 +31,26 @@ func switch_look() -> void:
 
 func _ready():
 	bumplace.hide()
+	mask.show()
 
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		bumplace.show()
 		$bumbook.play()
+
+
+
+func _on_static_body_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		mask_anim.play('default')
+		mask.hide()
+		cans.hide()
+		tv.hide()
+		marketplace.hide()
+		chipanimation.hide()
+		await mask_anim.animation_finished
+		mask.show()
+		cans.show()
+		tv.show()
+		marketplace.show()
+		chipanimation.show()
