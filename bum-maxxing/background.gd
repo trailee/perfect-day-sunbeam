@@ -21,10 +21,10 @@ func switch_look() -> void:
 	# Apply the new texture
 	sprite.texture = textures[current_index]
 
-
 func _ready():
 	bumplace.hide()
 
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		bumplace.show()
+		$bumbook.play()

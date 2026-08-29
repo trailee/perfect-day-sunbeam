@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://brgbths5iucmo" path="res://images/bg.png" id="1_oabld"]
 [ext_resource type="Texture2D" uid="uid://qcqc3ya8kcy1" path="res://images/c1.png" id="2_b3bg0"]
 [ext_resource type="Texture2D" uid="uid://k2ipnw40e07s" path="res://images/tv.png" id="3_eq6nc"]
-[ext_resource type="PackedScene" uid="uid://3q0hpnnanc82" path="res://chipanimation.tscn" id="5_8u6ia"]
+[ext_resource type="AudioStream" uid="uid://xavwaq4bsbps" path="res://audio/bumbook_SFX.mp3" id="4_6i7po"]
+[ext_resource type="PackedScene" path="res://chipanimation.tscn" id="5_8u6ia"]
 [ext_resource type="Texture2D" uid="uid://dwvwtxxk0hi8l" path="res://images/greencowdrinks.png" id="5_cdpnt"]
 [ext_resource type="Texture2D" uid="uid://dpkk7151cf8x1" path="res://images/eyemask.png" id="6_8u6ia"]
 [ext_resource type="PackedScene" uid="uid://bataxyg60i6xp" path="res://interface/bumplace_interface.tscn" id="7_vvxqx"]
@@ -26,6 +27,11 @@ textures = Array[Texture2D]([ExtResource("2_b3bg0")])
 
 [node name="bgm" type="AudioStreamPlayer2D" parent="." unique_id=1438311723]
 stream = ExtResource("1_bpugw")
+autoplay = true
+
+[node name="bumbook" type="AudioStreamPlayer2D" parent="." unique_id=316259328]
+stream = ExtResource("4_6i7po")
+volume_db = 15.0
 autoplay = true
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1436374199]
