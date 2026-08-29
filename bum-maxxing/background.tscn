@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bc166vneblkjj" path="res://images/chips.png" id="2_splo0"]
 [ext_resource type="Texture2D" uid="uid://k2ipnw40e07s" path="res://images/tv.png" id="3_eq6nc"]
 [ext_resource type="Texture2D" uid="uid://dwvwtxxk0hi8l" path="res://images/greencowdrinks.png" id="5_cdpnt"]
-[ext_resource type="Texture2D" uid="uid://yh478f5pk3l6" path="res://images/Screenshot_2026-08-29_145727-removebg-preview.png" id="5_gjjrj"]
 [ext_resource type="Texture2D" uid="uid://dpkk7151cf8x1" path="res://images/eyemask.png" id="6_8u6ia"]
 [ext_resource type="PackedScene" uid="uid://bataxyg60i6xp" path="res://interface/bumplace_interface.tscn" id="7_vvxqx"]
+[ext_resource type="Texture2D" uid="uid://bq6eu4rnythqu" path="res://images/phone.png" id="9_cdpnt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_splo0"]
 
@@ -90,7 +90,6 @@ scale = Vector2(38.16507, 31.47528)
 shape = SubResource("RectangleShape2D_eq6nc")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=711133326]
-visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=1012324673]
 anchors_preset = 8
@@ -112,21 +111,18 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="marketplace" type="Sprite2D" parent="ui/HBoxContainer2" unique_id=772155642]
-position = Vector2(-89, 107)
-scale = Vector2(0.1758509, 0.5048077)
-texture = ExtResource("5_gjjrj")
+[node name="marketplace" type="Sprite2D" parent="." unique_id=772155642]
+position = Vector2(932, 564)
+texture = ExtResource("9_cdpnt")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ui/HBoxContainer2/marketplace" unique_id=1811876546]
-position = Vector2(-22.746582, -1.980957)
-scale = Vector2(5.6866364, 1.9809526)
+[node name="StaticBody2D" type="StaticBody2D" parent="marketplace" unique_id=1811876546]
+position = Vector2(851, -428)
+scale = Vector2(1.7298937, 1.9809526)
 input_pickable = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ui/HBoxContainer2/marketplace/StaticBody2D" unique_id=705905261]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="marketplace/StaticBody2D" unique_id=705905261]
+position = Vector2(2.3122807, -0.5048076)
 scale = Vector2(8.891951, 7.640655)
 shape = SubResource("CircleShape2D_vvxqx")
 
-[connection signal="input_event" from="interactable/chips/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="input_event" from="interactable/cans/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="input_event" from="interactable/mask/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="input_event" from="ui/HBoxContainer2/marketplace/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="input_event" from="marketplace/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
