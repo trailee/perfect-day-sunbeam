@@ -1,7 +1,16 @@
-extends Node2D
+extends StaticBody2D
 
-@onready var bumplace: Node2D = $ui/HBoxContainer/bumplace_interface
 
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+	
 @export var textures: Array[Texture2D] = []
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -9,6 +18,7 @@ var current_index: int = 0
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("wwy")
 		switch_look()
 
 func switch_look() -> void:
@@ -20,11 +30,3 @@ func switch_look() -> void:
 	
 	# Apply the new texture
 	sprite.texture = textures[current_index]
-
-
-func _ready():
-	bumplace.hide()
-
-func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		bumplace.show()
