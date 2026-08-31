@@ -30,12 +30,17 @@ func switch_look() -> void:
 	sprite.texture = textures[current_index]
 
 func _ready():
+	bumplace.exit_pressed.connect(_on_button_pressed)
 	bumplace.hide()
 	mask.show()
 
+func _on_button_pressed() -> void:
+	marketplace.show()
+	
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		bumplace.show()
+		marketplace.hide()
 		$bumbook.play()
 
 

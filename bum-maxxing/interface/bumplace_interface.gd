@@ -8,6 +8,8 @@ extends Node2D
 @onready var scroll_buy: Control = $"scroll buy UI"
 @onready var accessories: Control = $"accessories UI"
 
+signal exit_pressed
+
 func _ready():
 	show()
 	bumplace.show()
@@ -28,6 +30,7 @@ func _on_access_pressed() -> void:
 	accessories.show()
 
 func _on_button_pressed() -> void:
+	exit_pressed.emit()
 	if bumplace.visible:
 		hide()
 	elif activities.visible or accessories.visible:
