@@ -39,18 +39,9 @@ func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx
 		$bumbook.play()
 
 
-
 func _on_static_body_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		mask_anim.show()
 		mask_anim.play('default')
-		mask.hide()
-		cans.hide()
-		tv.hide()
-		marketplace.hide()
-		chipanimation.hide()
 		await mask_anim.animation_finished
-		mask.show()
-		cans.show()
-		tv.show()
-		marketplace.show()
-		chipanimation.show()
+		mask_anim.hide()

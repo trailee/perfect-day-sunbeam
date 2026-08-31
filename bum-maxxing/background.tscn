@@ -15,6 +15,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvxqx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i7po"]
+size = Vector2(29.815071, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq6nc"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx2w8"]
 atlas = ExtResource("6_6i7po")
 region = Rect2(5760, 0, 1920, 1080)
@@ -62,11 +67,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_splo0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i7po"]
-size = Vector2(29.815071, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq6nc"]
-
 [node name="Main" type="Node2D" unique_id=612749641]
 script = ExtResource("1_gjjrj")
 textures = Array[Texture2D]([ExtResource("2_b3bg0")])
@@ -104,19 +104,6 @@ shape = SubResource("CircleShape2D_vvxqx")
 texture = ExtResource("6_8u6ia")
 centered = false
 
-[node name="mask_anim" type="AnimatedSprite2D" parent="interactable" unique_id=1413451565]
-position = Vector2(960, 537)
-sprite_frames = SubResource("SpriteFrames_e8087")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="interactable/mask_anim" unique_id=363937100]
-position = Vector2(889, 189)
-input_pickable = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable/mask_anim/StaticBody2D2" unique_id=2000496020]
-position = Vector2(-1305, 77)
-scale = Vector2(7.7262154, 7.971705)
-shape = SubResource("CapsuleShape2D_splo0")
-
 [node name="chipanimation" parent="interactable" unique_id=897342331 instance=ExtResource("5_8u6ia")]
 
 [node name="cans" type="Sprite2D" parent="interactable" unique_id=320995712]
@@ -149,6 +136,19 @@ input_pickable = true
 position = Vector2(0, 2)
 scale = Vector2(38.16507, 31.47528)
 shape = SubResource("RectangleShape2D_eq6nc")
+
+[node name="mask_anim" type="AnimatedSprite2D" parent="interactable" unique_id=1413451565]
+position = Vector2(960, 537)
+sprite_frames = SubResource("SpriteFrames_e8087")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="interactable/mask_anim" unique_id=363937100]
+position = Vector2(889, 189)
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable/mask_anim/StaticBody2D2" unique_id=2000496020]
+position = Vector2(-1305, 77)
+scale = Vector2(7.7262154, 7.971705)
+shape = SubResource("CapsuleShape2D_splo0")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=711133326]
 
