@@ -161,6 +161,7 @@ scale = Vector2(7.7262154, 7.971705)
 shape = SubResource("CapsuleShape2D_splo0")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=711133326]
+visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=1012324673]
 anchors_preset = 8
