@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dpkk7151cf8x1" path="res://images/eyemask.png" id="6_8u6ia"]
 [ext_resource type="PackedScene" uid="uid://bataxyg60i6xp" path="res://interface/bumplace_interface.tscn" id="7_vvxqx"]
 [ext_resource type="Texture2D" uid="uid://bq6eu4rnythqu" path="res://images/phone.png" id="9_cdpnt"]
+[ext_resource type="Texture2D" uid="uid://cyqtkqwt8c6nd" path="res://images/HD_transparent_picture.png" id="12_b3bg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvxqx"]
 
@@ -19,6 +20,10 @@
 size = Vector2(29.815071, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq6nc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8umsc"]
+atlas = ExtResource("12_b3bg0")
+region = Rect2(0, 0, 1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx2w8"]
 atlas = ExtResource("6_6i7po")
@@ -39,6 +44,9 @@ region = Rect2(3840, 0, 1920, 1080)
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8087"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8umsc")
+}, {
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_tx2w8")
 }, {
@@ -59,6 +67,9 @@ animations = [{
 }, {
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_tx2w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8umsc")
 }],
 "loop": false,
 "name": &"default",
@@ -78,7 +89,6 @@ autoplay = true
 [node name="bumbook" type="AudioStreamPlayer2D" parent="." unique_id=316259328]
 stream = ExtResource("4_6i7po")
 volume_db = 15.0
-autoplay = true
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1436374199]
 texture = ExtResource("1_oabld")
@@ -163,14 +173,6 @@ grow_vertical = 2
 
 [node name="bumplace_interface" parent="ui/HBoxContainer" unique_id=2054423378 instance=ExtResource("7_vvxqx")]
 scale = Vector2(1.7, 1.7)
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ui" unique_id=953111258]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
 
 [connection signal="input_event" from="interactable/marketplace/StaticBody2D" to="." method="_on_static_body_2d_input_event"]
 [connection signal="input_event" from="interactable/mask_anim/StaticBody2D2" to="." method="_on_static_body_2d_2_input_event"]
