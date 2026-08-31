@@ -6,11 +6,13 @@ extends Node2D
 @onready var eating_buy: Control = $"eating buy UI"
 @onready var nap_buy: Control = $"nap buy UI"
 @onready var scroll_buy: Control = $"scroll buy UI"
+@onready var accessories: Control = $"accessories UI"
 
 func _ready():
 	show()
 	bumplace.show()
 	activities.hide()
+	accessories.hide()
 	tv_buy.hide()
 	drinking_buy.hide()
 	eating_buy.hide()
@@ -23,12 +25,14 @@ func _on_activ_pressed() -> void:
 
 func _on_access_pressed() -> void:
 	bumplace.hide()
+	accessories.show()
 
 func _on_button_pressed() -> void:
 	if bumplace.visible:
 		hide()
-	elif activities.visible:
+	elif activities.visible or accessories.visible:
 		activities.hide()
+		accessories.hide()
 		bumplace.show()
 	else:
 		tv_buy.hide()

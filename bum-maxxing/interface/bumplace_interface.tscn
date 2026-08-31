@@ -122,6 +122,7 @@ offset_right = 337.0
 offset_bottom = 480.0
 theme = SubResource("Theme_n3f7a")
 theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="activities UI/ScrollContainer" unique_id=613937571]
 layout_mode = 2
@@ -201,6 +202,83 @@ offset_right = 304.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 40
 text = "doomscroll"
+horizontal_alignment = 1
+
+[node name="accessories UI" type="Control" parent="." unique_id=1207827994]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -181.0
+offset_top = -278.0
+offset_right = -141.0
+offset_bottom = -238.0
+
+[node name="Label" type="Label" parent="accessories UI" unique_id=966191321]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 56.0
+offset_right = 273.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "Activities"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="accessories UI" unique_id=210435327]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 796.0
+theme = SubResource("Theme_n3f7a")
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="accessories UI/ScrollContainer" unique_id=366667146]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="hairy" type="Button" parent="accessories UI/ScrollContainer/VBoxContainer" unique_id=936679551]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="accessories UI/ScrollContainer/VBoxContainer/hairy" unique_id=1589390024]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "hairy legs"
+horizontal_alignment = 1
+
+[node name="oily" type="Button" parent="accessories UI/ScrollContainer/VBoxContainer" unique_id=932141070]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="accessories UI/ScrollContainer/VBoxContainer/oily" unique_id=626946236]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "bed sheets"
+horizontal_alignment = 1
+
+[node name="fungi" type="Button" parent="accessories UI/ScrollContainer/VBoxContainer" unique_id=1001221877]
+layout_mode = 2
+theme_override_constants/icon_max_width = 310
+icon = ExtResource("2_meaed")
+
+[node name="Label" type="Label" parent="accessories UI/ScrollContainer/VBoxContainer/fungi" unique_id=2072683820]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 249.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "toe fungi"
 horizontal_alignment = 1
 
 [node name="tv buy UI" type="Control" parent="." unique_id=209024677]
@@ -662,6 +740,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
 text = "purchase"
 
 [node name="nap buy UI" type="Control" parent="." unique_id=2026260934]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -181.0
@@ -850,6 +929,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n3f7a")
 text = "purchase"
 
 [node name="scroll buy UI" type="Control" parent="." unique_id=1601426876]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -181.0
@@ -1002,4 +1082,7 @@ text = "X"
 [connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/muk" to="." method="_on_muk_pressed"]
 [connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/sleep" to="." method="_on_sleep_pressed"]
 [connection signal="pressed" from="activities UI/ScrollContainer/VBoxContainer/scroll" to="." method="_on_scroll_pressed"]
+[connection signal="pressed" from="accessories UI/ScrollContainer/VBoxContainer/hairy" to="." method="_on_tv_pressed"]
+[connection signal="pressed" from="accessories UI/ScrollContainer/VBoxContainer/oily" to="." method="_on_bev_pressed"]
+[connection signal="pressed" from="accessories UI/ScrollContainer/VBoxContainer/fungi" to="." method="_on_muk_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_button_pressed"]

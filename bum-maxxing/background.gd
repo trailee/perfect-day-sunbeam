@@ -41,7 +41,5 @@ func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx
 
 func _on_static_body_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		mask_anim.show()
 		mask_anim.play('default')
 		await mask_anim.animation_finished
-		mask_anim.hide()
